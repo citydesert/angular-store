@@ -1,0 +1,11 @@
+<div *ngIf="item.qty>0">
+    <img src="{{item.url}}" >
+    <div class="cart-item-details">
+    <h3>{{item.name}}</h3>
+    <div class="price">Price: ${{item.price}}</div>
+    <br>Amount:<br>
+    <button (click)="itemQty(item.id,true)"> + </button>
+    <input [(ngModel)]="qty" (ngModelChange)="updatePrices($event)" type="number" name="qty" value="{{item.qty}}" >
+    <button (click)="itemQty(item.id,false)"> - </button>
+    </div>
+</div>

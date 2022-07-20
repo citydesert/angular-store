@@ -1,0 +1,33 @@
+<section class="cart-container" *ngIf="cartItems.length>0">
+
+    <div class="cart-items">
+        <h1>Items In Cart</h1>
+        <app-cart-item *ngFor="let item of cartItems" [item]="item" (oneItemPrice)="getTotal($event)" class="cart-item"></app-cart-item>
+        <div class="totalPrice">Total price: {{this.totalPrice}}</div>
+    </div>
+<div class="cart-form">
+
+    <h2>Please fill this form to confirm order!</h2>
+    <form name="order" #form="ngForm" (ngSubmit)="confirmOrder()" method="post">
+            <label for="name">Full Name:</label>
+            <input type="text" placeholder="first,second and third name"
+            name="name" [(ngModel)]="name"
+            maxlength="50" minlength="3" required >
+            
+            <label for="address">Full Address:</label>
+            <input type="text" id="address" placeholder="Governate,City,street and building No" name="address" 
+            name="address" [(ngModel)]="address" 
+            maxlength="50" minlength="3" required>
+            <label for="credit">Card Number:</label>
+            <input type="string" id="credit" placeholder="Credit Ex: XXXX XXXX XXXX XXXX" 
+            name="credit" [(ngModel)]="credit" data-credit-card-type
+            minlength="16" maxlength="16" required>
+        <input type="submit" [disabled]="form.invalid" value="Submit" class="btn">
+    </form>
+    <span *ngIf="form.dirty" class="alert">Please check inputs length and types before submitting!</span>
+    </div>
+</section>
+<section class="empty-cart-message" *ngIf="cartItems.length<1">
+    <span>No items selected in your cart!  <br><a routerLink="/">Go to home!</a></span>
+</section>
+
