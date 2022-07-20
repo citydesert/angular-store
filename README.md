@@ -47,7 +47,7 @@ Mahmoud Hassan , Egyptian junior full stack developer , Developed this project a
 *In this project i created two services manually: 
  - CartService : includes add items and retrive items from cart. and addedd observable and subject from rxjs to subscribe to items length in cart.
  - HttpService: includes connect to data.json and sending https POST request to confirm order.
- *In this project i used BrowserModule, AppRoutingModule, HttpClientModule, FormsModule
+ *In this project i used BrowserModule, AppRoutingModule, HttpClientModule, FormsModule , ngModelChange as the DOM event listener to handle changes to number input for qty's in cart overview.
  and injected all services and dependiances in project
  ## Components
  Commponents and relationship between compomnents using @Input() and @Output().
